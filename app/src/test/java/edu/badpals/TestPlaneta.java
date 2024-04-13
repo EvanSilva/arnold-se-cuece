@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.Assert.assertEquals;
 
 
 public class TestPlaneta {
@@ -45,7 +46,7 @@ public class TestPlaneta {
         assertThat(planeta.getMasa()).isEqualTo(3.303e+23);
     }
 
-/**
+
 
     @Test
     public void PlanetaGetRadioTest() {
@@ -53,12 +54,15 @@ public class TestPlaneta {
         assertThat(planeta.getRadio()).isEqualTo(2.4397e+6);
     }
 
+/**
     @Test
     public void PlanetaNamesIteratorTest() {
         for (Planeta planeta : Planeta.values()) {
             assertThat(planeta.name()).isIn(planetas);
         }
     }
+**/
+
 
     @Test
     public void PesoSuperficieMercurioTest() {
@@ -66,6 +70,7 @@ public class TestPlaneta {
         double pesoHumano = 175;
         assertEquals(66.107583, planeta.pesoSuperficie(pesoHumano), 0.001);
     }
+
 
     @Test
     public void ArrayPlanetasTerrestresTest() {
@@ -84,6 +89,9 @@ public class TestPlaneta {
             assertThat(planeta.name()).isIn(planetasTerrestres);
         }
     }
+
+/**
+/**
 
     @Test
     public void ArrayGigantesGaseosos() {

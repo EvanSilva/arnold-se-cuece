@@ -1,9 +1,15 @@
 
 @
-java:S5786"Remove this 'public' modifier.(Ï¯Àıÿÿÿÿ8§¸”ì1
+java:S5786"Remove this 'public' modifier.(Ï¯Àıÿÿÿÿ8„Ò’Äí1
 ;
-java:S5786+"Remove this 'public' modifier.(Ê‡¥8¨¸”ì1
+java:S5786,"Remove this 'public' modifier.(Ê‡¥8„Ò’Äí1
+;
+java:S57864"Remove this 'public' modifier.(èÇÂç8„Ò’Äí1
+@
+java:S5786D"Remove this 'public' modifier.(À‹†Éüÿÿÿÿ8„Ò’Äí1
+@
+java:S5786L"Remove this 'public' modifier.(¤î Îùÿÿÿÿ8„Ò’Äí1
 `
-java:S5838#">Use assertThat(actual).isEqualByComparingTo(expected) instead.(’¾Ü—ûÿÿÿÿ8ª¸”ì1
+java:S5838$">Use assertThat(actual).isEqualByComparingTo(expected) instead.(’¾Ü—ûÿÿÿÿ8†Ò’Äí1
 P
-java:S5838%"3Use assertThat(actual).isEqualTo(expected) instead.(íÈËş8ª¸”ì1
+java:S5838&"3Use assertThat(actual).isEqualTo(expected) instead.(íÈËş8†Ò’Äí1
