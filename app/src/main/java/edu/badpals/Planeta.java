@@ -3,6 +3,8 @@
  */
 package edu.badpals;
 
+import java.util.EnumSet;
+
 public enum Planeta {
 
     MERCURY (3.303e+23, 2.4397e6),
@@ -48,5 +50,12 @@ public enum Planeta {
     return masaTierra(pesoHumano) * this.gravedadSuperficie() ;
     }
 
+    public static EnumSet<Planeta> getPlanetasTerrestres() {
+        return EnumSet.range(MERCURY, MARS);
+    }
+
+    public static EnumSet<Planeta> getGigantesGaseosos() {
+        return EnumSet.complementOf(getPlanetasTerrestres());
+    }
 
 }

@@ -1,7 +1,11 @@
 package edu.badpals;
 
-import org.junit.BeforeClass;
+//import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.sql.Array;
+import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -11,7 +15,8 @@ public class TestPlaneta {
 
     public static String[] planetas;
 
-    @BeforeClass
+    @BeforeAll
+    // El "@BeforeClass" fué substituido por "@BeforeAll" en JUnit 5
     public static void CreacionArrayPlanetasSetup() {
         planetas = new String[8];
         int planetasIncluidos = 0;
@@ -54,15 +59,24 @@ public class TestPlaneta {
         assertThat(planeta.getRadio()).isEqualTo(2.4397e+6);
     }
 
-/**
+
     @Test
     public void PlanetaNamesIteratorTest() {
         for (Planeta planeta : Planeta.values()) {
-            assertThat(planeta.name()).isIn(planetas);
+            assertThat(planeta.name()).isIn(Arrays.asList(planetas));
         }
     }
-**/
-
+    /* Para solucionar el warning de
+    "
+    TestPlaneta.java:63: warning: non-varargs call of varargs method with inexact argument type for last parameter;
+            assertThat(planeta.name()).isIn(planetas);
+                                            ^
+    cast to Object for a varargs call
+    cast to Object[] for a non-varargs call and to suppress this warning
+    1 warning
+    "
+    Algo de que es porque el método isIn() espera un Object[] y no un String[]; no entendí bien el por que al pasarlo a una lista, ya no da el warning.
+     */
 
     @Test
     public void PesoSuperficieMercurioTest() {
@@ -86,12 +100,13 @@ public class TestPlaneta {
         assertThat(planetas).doesNotContainNull();
 
         for (Planeta planeta : Planeta.getPlanetasTerrestres()) {
-            assertThat(planeta.name()).isIn(planetasTerrestres);
+            assertThat(planeta.name()).isIn(Arrays.asList(planetasTerrestres));
         }
     }
+    // Lo mismo de antes en el "isIn"
 
-/**
-/**
+
+
 
     @Test
     public void ArrayGigantesGaseosos() {
@@ -109,9 +124,9 @@ public class TestPlaneta {
         assertThat(planetas).doesNotContainNull();
 
         for (Planeta planeta : Planeta.getGigantesGaseosos()) {
-            assertThat(planeta.name()).isIn(gigantesGaseosos);
+            assertThat(planeta.name()).isIn(Arrays.asList(gigantesGaseosos));
         }
 
     }
-    **/
+    // Lo mismo de antes en el "isIn"
 }
