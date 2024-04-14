@@ -1,7 +1,11 @@
 package edu.badpals;
 
-import org.junit.BeforeClass;
+//import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.sql.Array;
+import java.util.Arrays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -11,7 +15,7 @@ public class TestPlaneta {
 
     public static String[] planetas;
 
-    @BeforeClass
+    @BeforeAll
     public static void CreacionArrayPlanetasSetup() {
         planetas = new String[8];
         int planetasIncluidos = 0;
@@ -39,14 +43,11 @@ public class TestPlaneta {
         assertThat(Planeta.values()[0]).isEqualTo(planeta);
     }
 
-
     @Test
     public void PlanetaGetMasaTest() {
         Planeta planeta = Planeta.MERCURY;
         assertThat(planeta.getMasa()).isEqualTo(3.303e+23);
     }
-
-
 
     @Test
     public void PlanetaGetRadioTest() {
@@ -54,15 +55,12 @@ public class TestPlaneta {
         assertThat(planeta.getRadio()).isEqualTo(2.4397e+6);
     }
 
-/**
     @Test
     public void PlanetaNamesIteratorTest() {
         for (Planeta planeta : Planeta.values()) {
-            assertThat(planeta.name()).isIn(planetas);
+            assertThat(planeta.name()).isIn(Arrays.asList(planetas));
         }
     }
-**/
-
 
     @Test
     public void PesoSuperficieMercurioTest() {
@@ -70,7 +68,6 @@ public class TestPlaneta {
         double pesoHumano = 175;
         assertEquals(66.107583, planeta.pesoSuperficie(pesoHumano), 0.001);
     }
-
 
     @Test
     public void ArrayPlanetasTerrestresTest() {
@@ -86,12 +83,9 @@ public class TestPlaneta {
         assertThat(planetas).doesNotContainNull();
 
         for (Planeta planeta : Planeta.getPlanetasTerrestres()) {
-            assertThat(planeta.name()).isIn(planetasTerrestres);
+            assertThat(planeta.name()).isIn(Arrays.asList(planetasTerrestres));
         }
     }
-
-/**
-/**
 
     @Test
     public void ArrayGigantesGaseosos() {
@@ -109,9 +103,7 @@ public class TestPlaneta {
         assertThat(planetas).doesNotContainNull();
 
         for (Planeta planeta : Planeta.getGigantesGaseosos()) {
-            assertThat(planeta.name()).isIn(gigantesGaseosos);
+            assertThat(planeta.name()).isIn(Arrays.asList(gigantesGaseosos));
         }
-
     }
-    **/
 }
