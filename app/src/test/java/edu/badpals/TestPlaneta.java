@@ -87,7 +87,6 @@ public class TestPlaneta {
         }
     }
 
-    /**
     @Test
     public void ArrayGigantesGaseosos() {
 
@@ -107,5 +106,4 @@ public class TestPlaneta {
             assertThat(planeta.name()).isIn(Arrays.asList(gigantesGaseosos));
         }
     }
-    **/
 }
